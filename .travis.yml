@@ -6,13 +6,16 @@ services:
 
 before_install:
     # - docker build -t vision333/docker-react  -f dockerfile.dev .
-    - docker run -e CI=true vision333/docker-react npm run test
+    - docker build -t vision333/docker-react -f dockerfile.dev .
 script:
     # old way of doing things below: for testing
     # - docker run vision333/docker-react  npm run test -- --coverage
 
     # new way of doing things: for testing
-    - docker build -t vision333/docker-react -f dockerfile.dev .
+    - docker run -e CI=true vision333/docker-react npm run test
+
+
+
 
 
 
